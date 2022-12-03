@@ -80,7 +80,7 @@ persona.attributes = [
         name: baseAttributes.CONSTITUTION,
         baseAttribute: {
             key: keyConfiguration.ATTR,
-            value: "0",
+            value: "2",
             configuration: attrInteger
         }
     },
@@ -144,4 +144,4 @@ persona.skills = [
 
 const calc = new Calculator(persona);
 calc.Process();
-console.log(persona);
+console.log(JSON.stringify(persona));

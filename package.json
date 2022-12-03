@@ -1,0 +1,12 @@
+{
+  "name": "hello",
+  "version": "0.0.1",
+  "scripts": {
+  },
+  "dependencies": {
+    "express": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.10"
+  }
+}
