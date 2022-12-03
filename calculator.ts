@@ -20,25 +20,25 @@ export class Calculator {
         if (description.params) {
             const inputs: number[] = [];
             description.params.forEach(p => {
-                if (p.key === keyConfiguration.SKILL) {
-                    const skill = this._persona.skills.find(s => s.name === p.value);
-                    const value = Number(skill?.baseAttribute.value);
-                    inputs.push(value);
+                let value = 0;
+                switch (p.key) {
+                    case keyConfiguration.SKILL:
+                        const skill = this._persona.skills.find(s => s.name === p.value);
+                        value = Number(skill?.baseAttribute.value);
+                        break;
+                    case keyConfiguration.BASE:
+                        value = Number(p.value);
+                        break;
+                    case keyConfiguration.ATTR:
+                        const attr = this._persona.attributes.find(a => a.name === p.value);
+                        value = Number(attr?.baseAttribute.value);
+                        break;
+                    case keyConfiguration.FORMULA:
+                        this._formula(p);
+                        value = Number(p.result);
+                        break;
                 }
-                if (p.key === keyConfiguration.BASE) {
-                    const value = Number(p.value);
-                    inputs.push(value);
-                }
-                if (p.key === keyConfiguration.ATTR) {
-                    const attr = this._persona.attributes.find(a => a.name === p.value);
-                    const value = Number(attr?.baseAttribute.value);
-                    inputs.push(value);
-                }
-                if (p.key === keyConfiguration.FORMULA) {
-                    this._formula(p);
-                    const value = Number(p.result);
-                    inputs.push(value);
-                }
+                inputs.push(value);
             });
             description.result = this._command(description.value as formula, inputs, inputs.length);
         }
