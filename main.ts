@@ -1,7 +1,7 @@
 import { baseAttributes } from "./attribute";
 import { Calculator } from "./calculator";
 import { DescriptionConfiguration, formula, keyConfiguration, type } from "./description";
-import { Persona } from "./Persona";
+import { Persona } from "./persona";
 import { baseSkill } from "./skill";
 
 const attrInteger: DescriptionConfiguration = {

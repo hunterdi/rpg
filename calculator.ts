@@ -1,7 +1,7 @@
 import { Percentage, Sum } from './command';
 import { Description, formula, keyConfiguration } from './description';
 import { Feature } from './feature';
-import { Persona } from './Persona';
+import { Persona } from './persona';
 
 export class Calculator {
     constructor(private readonly _persona: Persona) { }
