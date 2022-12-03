@@ -1,0 +1,21 @@
+import { Feature } from "./feature";
+
+export class Skill extends Feature {
+}
+
+export enum baseSkill {
+    ACROBATIC = "ACROBATIC",
+    ATHLETIC = "ATHLETIC",
+    COMBAT_MELEE = "COMBAT_MELEE",
+    COMBAT_RANGER = "COMBAT_RANGER",
+    COMBAT_DISARMED = "COMBAT_DISARMED",
+    CHEAT = "CHEAT",
+    TACTICAL = "TACTICAL",
+    STEALTH = "STEALTH",
+    INTIMIDATION = "INTIMIDATION",
+    INTUITION = "INTUITION",
+    INVESTIGATION = "INVESTIGATION",
+    PERCEPTION = "PERCEPTION",
+    PERSUASION = "PERSUASION",
+    COMBAT_WEAPONS = "COMBAT_WEAPONS",
+}
