@@ -1,8 +1,8 @@
 import { BaseAttribute } from './base-attribute';
-import { Formula } from './formula';
+import { Expression } from './expression';
 
 export abstract class Feature {
     public name!: string;
     public baseAttribute!: BaseAttribute;
-    public formulas?: Formula[];
+    public expressions?: Expression[];
 }

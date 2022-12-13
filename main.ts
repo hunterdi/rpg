@@ -1,141 +1,142 @@
-import { baseAttributes } from "./attribute";
+import { baseAttributes as BaseAttributes } from "./attribute";
 import { Calculator } from "./calculator";
-import { DescriptionConfiguration, formula, keyConfiguration, type } from "./description";
+import { DescriptionConfiguration, Command, KeyType, Type } from "./description";
+import { Dice } from "./dice";
 import { Persona } from "./persona";
-import { baseSkill } from "./skill";
+import { TypeSpecialization } from "./skill";
 
 const attrInteger: DescriptionConfiguration = {
-    key: keyConfiguration.ATTR,
-    type: type.INTEGER,
+    key: KeyType.ATTR,
+    type: Type.INTEGER,
 };
 
 const persona = new Persona();
 persona.name = "JD Hunter";
 persona.attributes = [
     {
-        name: baseAttributes.STRONG,
+        name: BaseAttributes.STRONG,
         baseAttribute: {
-            key: keyConfiguration.ATTR,
-            value: "0",
+            key: KeyType.ATTR,
+            value: (new Dice(10).getValue()).toString(),
             configuration: attrInteger
         }
     },
     {
-        name: baseAttributes.DEFENSE,
+        name: BaseAttributes.DEFENSE,
         baseAttribute: {
-            key: keyConfiguration.ATTR,
-            value: "0",
+            key: KeyType.ATTR,
+            value: (new Dice(10).getValue()).toString(),
             configuration: attrInteger
         }
     },
     {
-        name: baseAttributes.STAMINA,
+        name: BaseAttributes.STAMINA,
         baseAttribute: {
-            key: keyConfiguration.ATTR,
-            value: "0",
+            key: KeyType.ATTR,
+            value: (new Dice(10).getValue()).toString(),            
             configuration: attrInteger
         }
     },
     {
-        name: baseAttributes.AGILITY,
+        name: BaseAttributes.AGILITY,
         baseAttribute: {
-            key: keyConfiguration.ATTR,
-            value: "0",
+            key: KeyType.ATTR,
+            value: (new Dice(10).getValue()).toString(),
             configuration: attrInteger
         }
     },
     {
-        name: baseAttributes.MENTAL,
+        name: BaseAttributes.MENTAL,
         baseAttribute: {
-            key: keyConfiguration.ATTR,
-            value: "0",
+            key: KeyType.ATTR,
+            value: (new Dice(10).getValue()).toString(),
             configuration: attrInteger
         }
     },
     {
-        name: baseAttributes.WISDOM,
+        name: BaseAttributes.WISDOM,
         baseAttribute: {
-            key: keyConfiguration.ATTR,
-            value: "0",
+            key: KeyType.ATTR,
+            value: (new Dice(10).getValue()).toString(),
             configuration: attrInteger
         }
     },
     {
-        name: baseAttributes.INTELLIGENCE,
+        name: BaseAttributes.INTELLIGENCE,
         baseAttribute: {
-            key: keyConfiguration.ATTR,
-            value: "0",
+            key: KeyType.ATTR,
+            value: (new Dice(10).getValue()).toString(),
             configuration: attrInteger
         }
     },
     {
-        name: baseAttributes.CHARISM,
+        name: BaseAttributes.CHARISM,
         baseAttribute: {
-            key: keyConfiguration.ATTR,
-            value: "0",
+            key: KeyType.ATTR,
+            value: (new Dice(10).getValue()).toString(),
             configuration: attrInteger
         }
     },
     {
-        name: baseAttributes.CONSTITUTION,
+        name: BaseAttributes.CONSTITUTION,
         baseAttribute: {
-            key: keyConfiguration.ATTR,
-            value: "2",
+            key: KeyType.ATTR,
+            value: (new Dice(10).getValue()).toString(),
             configuration: attrInteger
         }
     },
 ];
-persona.skills = [
+persona.specializations = [
     {
-        name: baseSkill.COMBAT_MELEE,
+        name: TypeSpecialization.COMBAT_MELEE,
         baseAttribute: {
-            key: keyConfiguration.SKILL,
-            value: "1",
+            key: KeyType.SPECIALIZATION,
+            value: (new Dice(4).getValue()).toString(),
             configuration: {
-                key: keyConfiguration.SKILL,
-                type: type.INTEGER,
+                key: KeyType.SPECIALIZATION,
+                type: Type.INTEGER,
             }
         },
-        formulas: [
+        expressions: [
             {
-                key: keyConfiguration.FORMULA,
-                value: formula.SUM,
+                key: KeyType.EXPRESSION,
+                value: Command.SUM,
                 params: [
                     {
-                        key: keyConfiguration.ATTR,
-                        value: baseAttributes.CONSTITUTION,
+                        key: KeyType.ATTR,
+                        value: BaseAttributes.STRONG,
                         configuration: attrInteger
                     },
                     {
-                        key: keyConfiguration.FORMULA,
-                        value: formula.PERCENTAGE,
+                        key: KeyType.EXPRESSION,
+                        value: Command.PERCENTAGE,
                         params: [
                             {
-                                key: keyConfiguration.SKILL,
-                                value: baseSkill.COMBAT_MELEE,
+                                key: KeyType.SPECIALIZATION,
+                                value: TypeSpecialization.COMBAT_MELEE,
                                 configuration: {
-                                    key: keyConfiguration.SKILL,
-                                    type: type.INTEGER,
+                                    key: KeyType.SPECIALIZATION,
+                                    type: Type.INTEGER,
                                 }
                             },
                             {
-                                key: keyConfiguration.BASE,
+                                key: KeyType.BASE,
                                 value: "1",
                                 configuration: {
-                                    key: keyConfiguration.BASE,
-                                    type: type.FLOAT,
+                                    key: KeyType.BASE,
+                                    type: Type.FLOAT,
                                 }
                             },
                         ],
                         configuration: {
-                            key: formula.PERCENTAGE,
-                            type: type.FLOAT,
+                            key: Command.PERCENTAGE,
+                            type: Type.FLOAT,
                         }
                     }
                 ],
                 configuration: {
-                    key: keyConfiguration.SKILL,
-                    type: type.INTEGER,
+                    key: KeyType.SPECIALIZATION,
+                    type: Type.INTEGER,
                 }
             },
         ]

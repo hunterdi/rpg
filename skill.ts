@@ -1,9 +1,9 @@
 import { Feature } from "./feature";
 
-export class Skill extends Feature {
+export class Specialization extends Feature {
 }
 
-export enum baseSkill {
+export enum TypeSpecialization {
     ACROBATIC = "ACROBATIC",
     ATHLETIC = "ATHLETIC",
     COMBAT_MELEE = "COMBAT_MELEE",
@@ -18,4 +18,7 @@ export enum baseSkill {
     PERCEPTION = "PERCEPTION",
     PERSUASION = "PERSUASION",
     COMBAT_WEAPONS = "COMBAT_WEAPONS",
+    CRITICAL_DAMAGE = 'CRITICAL',
+    CRITICAL_RATE = 'CRITICAL_RATE',
+    MEDICINE = 'MEDICINE'
 }

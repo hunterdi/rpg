@@ -1,3 +1,4 @@
+import { Dice, DiceType } from "./dice";
 import { Parameter } from "./parameter";
 
 export abstract class Description {
@@ -5,24 +6,25 @@ export abstract class Description {
     public input?: string;
     public value!: string;
     public configuration!: DescriptionConfiguration;
+    public dice?: DiceType;
     public params?: Parameter[];
     public result?: number;
 }
 
 export class DescriptionConfiguration {
     public key!: string;
-    public type!: type;
+    public type!: Type;
 }
 
-export enum type {
-    STRING  = "STRING",
+export enum Type {
+    STRING = "STRING",
     INTEGER = "INTEGER",
     FLOAT = "FLOAT",
     JSON = "JSON",
     OPTION = "OPTION"
 }
 
-export enum formula {
+export enum Command {
     SUM = "SUM",
     SUBTRACT = "SUBTRACT",
     MULTIPLICATION = "MULTIPLICATION",
@@ -30,12 +32,13 @@ export enum formula {
     PERCENTAGE = "PERCENTAGE",
 }
 
-export enum keyConfiguration {
+export enum KeyType {
     ATTR = "ATTR",
-    SKILL = "SKILL",
-    FORMULA = "FORMULA",
+    SPECIALIZATION = "SPECIALIZATION",
+    EXPRESSION = "EXPRESSION",
     RESPONSE = "RESPONSE",
     INPUT = "INPUT",
     BASE = "BASE",
+    SKILL = "SKILL"
 }
 

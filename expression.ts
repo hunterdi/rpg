@@ -1,4 +1,4 @@
 import { Description } from "./description";
 
-export class Formula extends Description {
+export class Expression extends Description {
 }
